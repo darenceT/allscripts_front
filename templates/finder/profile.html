@@ -1,0 +1,38 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+  <div class="column is-center"><br>
+    <h2>{{ profile.name }}</h2>
+    {{ profile.specialty }}<br>
+    {{ profile.years }} years experience<br>
+    Review Score: {{ profile.review_score }}<br><br>
+    Ph. {{ profile.phone }}<br>
+    {{ profile.address }}<hr>
+  
+    <h4>Check out more {{ profile.specialty }} doctors!</h4>
+  </div>
+  <table class="table table-success table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Speciality</th>
+          <th scope="col">Location</th>
+          <th scope="col">Review Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for other in similar %}
+        <tr>
+          <td><a href="{% url 'profile' other.id %}">{{ other.name }}</a></td>
+          <td>{{ other.specialty }}</td>
+          <td>{{ other.location }}</td>
+          <td>{{ other.review_score }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+  <a href="{% url 'index' %}" class="button is-grey-light">Go back</a>
+  </div>
+</div>
+
+{% endblock %}

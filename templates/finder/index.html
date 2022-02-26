@@ -1,0 +1,30 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+<style>
+    h2 {text-align: center;}
+</style>
+
+<h2>Find your doctor today!</h2><br>
+<table class="table table-success table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Speciality</th>
+        <th scope="col">Location</th>
+        <th scope="col">Review Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for profile in data %}
+      <tr>
+        <td><a href="{% url 'profile' profile.id %}">{{ profile.name }}</a></td>
+        <td>{{ profile.specialty }}</td>
+        <td>{{ profile.location }}</td>
+        <td>{{ profile.review_score }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
