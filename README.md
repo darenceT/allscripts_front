@@ -2,7 +2,7 @@
 
 2/25/22
 
-Allscripts internship application take-home project  
+Allscripts internship application 2-hour take-home project  
 
 This Django project displays a list of doctors. 
 
